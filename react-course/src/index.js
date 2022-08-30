@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useSyncExternalStore } from "react";
 import ReactDOM from "react-dom/client";
 import { Greeting, UserCard } from "./Greeting";
 import Product, { Navbar } from "./Product";
@@ -8,9 +8,14 @@ import { Saludar } from "./Saludar";
 import { Posts } from "./Posts";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+function Counter() {
+  return <div>
+    
+  </div>
+}
 
 root.render(
   <>
-  <Posts/>
+
   </>
 );

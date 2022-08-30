@@ -1,6 +1,13 @@
-export const Posts=()=>{
-    return <ul>
-        <li>Titulo de una publicacion</li>
-        <li>Titulo de una publicacion2</li>
-    </ul>
-}
+import { VscDebug } from "react-icons/vsc";
+
+export const Posts = () => {
+  return <button onClick={()=>{
+    fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error =>console.error(error))
+  }}>
+    Traer Datos
+    <VscDebug/>
+  </button>
+};
