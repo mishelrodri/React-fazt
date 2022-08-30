@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { Greeting, UserCard } from "./Greeting";
 import Product, { Navbar } from "./Product";
@@ -10,30 +10,29 @@ import { Posts } from "./Posts";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 function Counter() {
-  /*Devuelve un arreglo */
-  const [counter, setCounter] = useState(10);
 
+  useEffect(()=>{
+    console.log('render')
+  }, [counter])
+
+  /*Devuelve un arreglo */
+  const [mensaje, setMensaje] = useState("");
+  const [counter,setCounter]=useState(0)
   return (
     <div>
-      <h1>Counter:{counter}</h1>
-      <button
-        onClick={() => {
-          setCounter(counter + 1);
-        }}
-      >Sumar</button>
-      <button
-        onClick={() => {
-          setCounter(counter - 1);
-        }}
-      >Restar</button>
-      <button
-        onClick={() => {
-          setCounter(100);
-        }}
-      >Reiniciar
+      <input onChange={(e) => { setMensaje(e.target.value); }}/>
+      <button onClick={() => {
+         alert("El mensaje es : " + mensaje)
+         }}>
+        Save
       </button>
+      <hr/>
+      <h1>Counter: {counter}</h1>
+      <button onClick={()=>{
+        setCounter(counter+1)
+      }}>Incrementar</button>
     </div>
-  );
+  )
 }
 
 root.render(
